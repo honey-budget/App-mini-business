@@ -1,42 +1,31 @@
 import tkinter as tk
 
-def generate_label():
-    # ดึงข้อมูลจาก Entry widgets
-    title = title_entry.get()
-    weight = float(weight_entry.get())
-    price = float(price_entry.get())
+def update_label():
+    new_data = entry.get()
+    label.config(text=f'Weight x Price: {new_data}')
 
-    # คำนวณผลคูณของ Weight และ Price
-    total = weight * price
+def clear_label():
+    label.config(text='Weight x Price: ')
 
-    # สร้าง Label
-    label_text = f'Title: {title}, Weight: {weight}, Price: {price}, Total: {total}'
-    result_label = tk.Label(root, text=label_text)
-    result_label.pack()
-
-# สร้างหน้าต่าง Tkinter
+# สร้างหน้าต่าง
 root = tk.Tk()
-root.title("Label Generator")
+root.title("Weight x Price Label")
 
-# สร้าง Entry widgets สำหรับรับข้อมูล
-title_label = tk.Label(root, text="Title:")
-title_label.pack()
-title_entry = tk.Entry(root)
-title_entry.pack()
+# สร้าง Entry สำหรับรับข้อมูล
+entry = tk.Entry(root)
+entry.pack(pady=10)
 
-weight_label = tk.Label(root, text="Weight:")
-weight_label.pack()
-weight_entry = tk.Entry(root)
-weight_entry.pack()
+# สร้าง Label เริ่มต้น
+label = tk.Label(root, text='Weight x Price: ')
+label.pack(pady=10)
 
-price_label = tk.Label(root, text="Price:")
-price_label.pack()
-price_entry = tk.Entry(root)
-price_entry.pack()
+# สร้าง Button สำหรับอัพเดทข้อมูล
+update_button = tk.Button(root, text='Update', command=update_label)
+update_button.pack(pady=5)
 
-# สร้าง Button สำหรับสร้าง Label
-generate_button = tk.Button(root, text="Generate Label", command=generate_label)
-generate_button.pack()
+# สร้าง Button สำหรับลบข้อมูล
+clear_button = tk.Button(root, text='Clear', command=clear_label)
+clear_button.pack(pady=5)
 
-# รัน Tkinter event loop
+# เริ่มการทำงานของโปรแกรม
 root.mainloop()
