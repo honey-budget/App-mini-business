@@ -10,7 +10,7 @@
 - เก็บข้อมูล และ ปริ้นใบราคา
 - สามารถเก็บข้อมูลแล้วในรูปแบบ .csv และอื่นๆ เพื่อนำไปใช้งานในทาง Data science
 # Bug & Debug
-- มีปัญหาการ Change/Remove/Add โดยต้องการให้แก้ไขได้เรื่อย ๆ ซึ่ง btn (Change/Remove) ยังคงต้องมีอยู่เสมอด้านหลังของ Result_Total  [$] บรรทัดที่ 75 - 77
+- มีปัญหาการ Change/Remove/Add โดยต้องการให้แก้ไขได้เรื่อย ๆ ซึ่ง btn (Change/Remove) ยังคงต้องมีอยู่เสมอด้านหลังของ Result_Total  [$] บรรทัดที่ 75 - 77 // ไม่แน่นอน
 ``` 
                         '''
                            #! req : after click a save button then show change-btn & remove-btn  
@@ -19,4 +19,20 @@
                         hidden_change_items_btn =btn_change_items_btn.pack_forget()
                         hidden_save_btn = btn_save_new_items.pack_forget()
 ```
-ในส่วนดังกล่าวจะเป็นการทำต่อไป ให้กด btn-save แล้วยังคงมี btn-remove และ btn-change อยู่เสมอ
+ในส่วนดังกล่าวจะเป็นการทำต่อไป ให้กด btn-save แล้วยังคงมี btn-remove และ btn-change อยู่เสมอ <br>
+
+# Hint
+-> สำหรับ Edit(Change)/Remove/Add มีแนวทางการจัดการโดยสร้าง function แยกออกจัดการ เช่น
+
+``` 
+   def edit(parameters):
+      ...
+         ...
+   .
+   .
+   .
+   def add(parameters):
+      ...
+         ...
+
+``` 
